@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow border-0">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-center mb-4 fw-bold text-primary">Create Your Patient Account</h3>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy:"bootstrap5" }} 
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-4">
+                        <small class="text-muted">
+                            Already have an account? <a href="{% url 'login' %}" class="text-decoration-none fw-bold">Log In here</a>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
